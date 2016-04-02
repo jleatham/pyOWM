@@ -1,12 +1,16 @@
 import pyowm,sys,API
 
+#Create API.py in same directory and add api_key = '_______' .  You must get your API key from openweathermap.org
 owm = pyowm.OWM(API.api_key)
 
-if len(sys.argv) > 1:
-        # Get address from command line.
-        location = ' '.join(sys.argv[1:])
-else:
-	location = "Houston,tx"
+try:
+	if len(sys.argv) > 1:
+        	# Get address from command line.
+        	location = ' '.join(sys.argv[1:])
+	else:
+		location = "Houston,tx"
+except:
+	print "example Houston,tx ... Memphis,TN"
 
 forecast = owm.daily_forecast(location)
 tomorrow = pyowm.timeutils.tomorrow()
