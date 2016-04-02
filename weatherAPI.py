@@ -1,6 +1,6 @@
-import pyowm,sys
+import pyowm,sys,API
 
-owm = pyowm.OWM('82d9778432f8232da399da4b4f4c817d')
+owm = pyowm.OWM(API.api_key)
 
 if len(sys.argv) > 1:
         # Get address from command line.
