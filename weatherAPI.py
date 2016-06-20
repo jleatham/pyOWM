@@ -1,6 +1,7 @@
 import pyowm,sys,API
 
 #Create API.py in same directory and add api_key = '_______' .  You must get your API key from openweathermap.org
+#Need to have python 2.x installed locally on machine, also install pip, then sudo pip install pyowm
 owm = pyowm.OWM(API.api_key)
 
 try:
@@ -9,6 +10,8 @@ try:
         	location = ' '.join(sys.argv[1:])
 	else:
 		location = "Houston,tx"
+		print "Using Houston TX as an example"
+		print "change location example: python weatherAPI.py Memphis,TN"
 except:
 	print "example Houston,tx ... Memphis,TN"
 
@@ -27,4 +30,3 @@ print 'wind degree: ', w.get_wind()['deg']
 print 'current temp: ' , w.get_temperature('fahrenheit')['temp'] , ' F'
 print '\t' ,'high: ',w.get_temperature('fahrenheit')['temp_max'] , '   low: ', w.get_temperature('fahrenheit')['temp_min']
 print '\n'
-
